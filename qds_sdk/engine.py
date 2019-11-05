@@ -15,6 +15,7 @@ class Engine:
         self.spark_settings = {}
         self.airflow_settings ={}
         self.engine_config = {}
+        self.hive_settings = {}
 
     def set_engine_config(self,
                           custom_hadoop_config=None,
@@ -31,7 +32,8 @@ class Engine:
                           airflow_version=None,
                           airflow_python_version=None,
                           is_ha=None,
-                          enable_rubix=None):
+                          enable_rubix=None,
+                          hive_version=None):
         '''
 
         Args:
@@ -75,6 +77,10 @@ class Engine:
         self.set_presto_settings(presto_version, custom_presto_config)
         self.set_spark_settings(spark_version, custom_spark_config)
         self.set_airflow_settings(dbtap_id, fernet_key, overrides, airflow_version, airflow_python_version)
+        self.set_hive_settings(hive_version)
+
+    def set_hive_settings(self, hive_version=None):
+        self.hive_settings['hive_version'] = hive_version
 
     def set_fairscheduler_settings(self,
                                    fairscheduler_config_xml=None,
