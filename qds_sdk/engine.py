@@ -33,6 +33,7 @@ class Engine:
                           airflow_python_version=None,
                           is_ha=None,
                           enable_rubix=None,
+			  is_hs2=None,
                           hive_version=None):
         '''
 
@@ -81,6 +82,7 @@ class Engine:
 
     def set_hive_settings(self, hive_version=None):
         self.hive_settings['hive_version'] = hive_version
+	self.hive_settings['is_hs2'] = True
 
     def set_fairscheduler_settings(self,
                                    fairscheduler_config_xml=None,
